@@ -1,0 +1,25 @@
+.title {
+  font-size: 5em;
+}
+
+.logout-button {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.add-student {
+  margin-top: 85px;
+  margin-left: 15px;;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-student {
+  margin-bottom: 20px;
+}

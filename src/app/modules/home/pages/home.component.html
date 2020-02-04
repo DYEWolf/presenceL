@@ -1,0 +1,39 @@
+<app-navbar ></app-navbar>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Student</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cross-click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="studentForm">
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Name" type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last Name" type="text" formControlName="lastName">
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="form-container">
+      <h5>Therapies</h5>
+      <mat-checkbox [(ngModel)]="speech">Speech</mat-checkbox>
+      <mat-checkbox [(ngModel)]="occupational">Occupational</mat-checkbox>
+      <mat-checkbox [(ngModel)]="behavioral">Behavioral</mat-checkbox>
+    </div>  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-success add-button" (click)="save()">Save</button>
+  </div>
+</ng-template>
+
+<button type="button" class="btn btn-outline-primary add-student" (click)="open(content)">Add Student</button>
+
+<app-data-table></app-data-table>
+
+
+

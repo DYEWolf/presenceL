@@ -1,0 +1,16 @@
+<div class="login-card">
+    <h2 class="login-title">Presence Learning</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-container">
+      <mat-form-field>
+        <input matInput placeholder="Email" type="email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" formControlName="password">
+      </mat-form-field>
+    </div>
+    <button type="submit" class="btn btn-primary login-button">Login</button>
+  </form>
+</div>
+  
+ 

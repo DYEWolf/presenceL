@@ -1,0 +1,72 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Therapies</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="splicedData">
+      <tr *ngFor="let data of items">
+        <td>{{ data.name }}</td>
+        <td>{{ data.lastName}}</td>
+        <td>{{ data.therapies}}</td>
+        <td>
+          <span> <i class="material-icons actions" (click)="openEditModal(edit ,data)">create</i></span>
+          <i class="material-icons actions" (click)="openModal(content, data)">cancel_presentation</i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<div class="d-flex justify-content-end p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="onPageChange(page)"></ngb-pagination>
+</div>
+  
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Delete</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cross-click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete this student?</p> 
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('cancel')">Cancel</button>
+      <button type="button" class="btn btn-outline-success" (click)="delete()">Confirm</button>
+    </div>
+  </ng-template>
+
+  <ng-template #edit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Student</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cross-click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="studentForm">
+        <div class="form-container">
+          <mat-form-field>
+            <input matInput placeholder="Name" type="text" formControlName="name">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Last Name" type="text" formControlName="lastName">
+          </mat-form-field>
+        </div>
+      </form>
+      <div class="form-container">
+        <h5>Therapies</h5>
+        <mat-checkbox [(ngModel)]="speech">Speech</mat-checkbox>
+        <mat-checkbox [(ngModel)]="occupational">Occupational</mat-checkbox>
+        <mat-checkbox [(ngModel)]="behavioral">Behavioral</mat-checkbox>
+      </div>  
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss('cancel')">Cancel</button>
+      <button type="button" class="btn btn-outline-success add-button" (click)="saveEdit()">Save</button>
+    </div>
+  </ng-template>
