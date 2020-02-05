@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DataTableComponent } from './components/data-table/data-table.component';
+import { DataTableComponent, NgbdSortableHeader } from './components/data-table/data-table.component';
 
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
@@ -20,7 +20,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     HomeComponent,
     NavbarComponent,
-    DataTableComponent
+    DataTableComponent,
+    NgbdSortableHeader
   ],
   imports: [
     MatFormFieldModule,

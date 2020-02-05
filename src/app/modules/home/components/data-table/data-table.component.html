@@ -1,9 +1,16 @@
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Enter student name" aria-label="student name" aria-describedby="button-addon2" [(ngModel)] = "sName" (ngModelChange)="inputEmpty()"> 
+    <div class="input-group-append">
+      <button class="btn btn-info" type="button" id="button-addon2" (click)="search()" [disabled]="!sName">Search</button>
+    </div>
+  </div>
+
 <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Therapies</th>
+        <th scope="col" sortable="name" (sort)="onSort($event)" class="sort-header">Name</th>
+        <th scope="col" sortable="lastName" (sort)="onSort($event)" class="sort-header">Last Name</th>
+        <th scope="col" >Therapies</th>
         <th scope="col"></th>
       </tr>
     </thead>
